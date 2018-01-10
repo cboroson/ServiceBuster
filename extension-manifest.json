@@ -1,0 +1,71 @@
+{
+  "manifestVersion": 1,
+  "id": "cboroson-Service-Buster",
+  "name": "Azure Service Buster",
+  "version": "1.0.35",
+  "publisher": "cboroson",
+  "public": false,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Release task for managing topic, queues, etc.",
+  "scope": [
+    "vso.build"
+  ],    
+  "categories": [
+    "Build and release"
+  ],
+  "tags": [
+    "Service Bus",
+    "Queue",
+    "Topic",
+    "Configuration"
+  ],
+  "content": {
+    "details": {
+      "path": "service-buster-extension/readme.md"
+    },
+    "license": {
+      "path": "service-buster-extension/license.txt"
+    }
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://github.com/cboroson/Service-Buster"
+    },
+    "support": {
+      "uri": "https://github.com/cboroson/Service-Buster"
+    }
+  },
+
+
+
+  "branding": {
+    "color": "rgb(36, 43, 50)",
+    "theme": "dark"
+  },
+  "icons": {
+    "default": "service-buster-extension/images/school-bus-icon.png"
+  },
+  "files": [
+  {
+    "path": "service-buster-release", "addressable": true
+  }
+],
+
+  "contributions": [
+    {
+      "id": "cboroson-Service-Buster",
+      "type": "ms.vss-distributed-task.task",
+      "description": "Configures an Azure Service Bus queues and topics from a specially formatted json file",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "service-busker-release"
+      }
+    }
+  ]
+}
