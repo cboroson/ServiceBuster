@@ -94,3 +94,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Pascal Naber at Xpirit for VSTS code samples
+* Roberto Hernandez for initial Powershell script
