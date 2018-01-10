@@ -5,7 +5,7 @@ Configure Service Bus Topics, Queues and subscriptions from VSTS.
 
 ## Getting Started
 
-Azure's Message Queueing solution, Service Bus, is easily deployed using ARM templates.  However, maintaining a complex or dynamic configuration of queues, topics and subscriptions in ARM templates quickly becomes unwieldy.  The problem often occurs when the development group requests Service Bus changes and must wait for the Azure admins to modify the template/parameters to deploy the change.
+Azure's Message Queueing solution, Service Bus, is easily deployed using ARM templates.  However, maintaining a complex or dynamic configuration of queues, topics and subscriptions in ARM templates quickly becomes unwieldy.  A problem often occurs when a development group requests Service Bus changes and must wait for the Azure admins to modify the template/parameters and deploy the change.
 
 This solution uses Visual Studio Team Services to manage an Azure Service Bus through a specially formatted json file.  It can be configured for CI/CD where changes to the json file trigger a release that deploys the changes to the Service Bus.  This eliminates the middle-man and gives developers more control over the configuration. 
 
