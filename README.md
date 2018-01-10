@@ -5,7 +5,9 @@ Configure Service Bus Topics, Queues and subscriptions from VSTS.
 
 ## Getting Started
 
-Azure's Message Queueing solution, Service Bus, is easily deployed using ARM templates.  However, maintaining a complex or dynamic configuration of queues, topics and subscriptions in ARM templates quickly becomes unwieldy.  This solution uses Visual Studio Team Services to manage an Azure Service Bus through a specially formatted json file.  
+Azure's Message Queueing solution, Service Bus, is easily deployed using ARM templates.  However, maintaining a complex or dynamic configuration of queues, topics and subscriptions in ARM templates quickly becomes unwieldy.  The problem often occurs when the development group requests Service Bus changes and must wait for the Azure admins to modify the template/parameters to deploy the change.
+
+This solution uses Visual Studio Team Services to manage an Azure Service Bus through a specially formatted json file.  It can be configured for CI/CD where changes to the json file trigger a release that deploys the changes to the Service Bus.  This eliminates the middle-man and gives developers more control over the configuration. 
 
 ### Prerequisites
 
@@ -55,19 +57,19 @@ The json configuration file should be configured using standard json syntax and 
 
 ### Topic resource settings
 
-All topics will be created with default settings and the following options enabled:
+All topics will be created with default settings and the following options enabled.  There is currently no way to override these settings.
 * Partitioning
 * Batched operations
 * Duplicate detection
 
 ### Subscription resource settings
 
-All subscriptions will be created with default settings and the following options enabled:
+All subscriptions will be created with default settings and the following options enabled.  There is currently no way to override these settings.
 * Deadlettering on message expiration
 
 ### Queue resource settings
 
-All topics will be created with default settings and the following options enabled:
+All topics will be created with default settings and the following options enabled.  There is currently no way to override these settings.
 * Partitioning
 
 
@@ -92,6 +94,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Pascal Naber at Xpirit for VSTS code samples
-
-
-
