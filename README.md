@@ -21,34 +21,34 @@ The json configuration file should be configured using standard json syntax and 
 
 ```
 {
-	"topics": [
-		{
-			"name": "topic-1",
-			"subscription": [
-				{
-					"name": "foo"
-				},				
-				{
-					"name": "bar",
-					"rule": "bar-Rule",
-					"sqlFilter": "MessageType = 'someString'",
-					"action": "set FilterTag = 'true'"
-				}
-			]
-		},
-		{
-			"name": "topic-2",
-			"subscription": [
-				{
-					"name": "foo"
-				}
-			]
-		},
-	],
-	"queues": [
-		"queue-1",
-		"queue-2"
-	]
+  "topics": [
+    {
+      "name": "topic-1",
+      "subscription": [
+        {
+          "name": "foo"
+      	},				
+        {
+          "name": "bar",
+          "rule": "bar-Rule",
+          "sqlFilter": "MessageType = 'someString'",
+          "action": "set FilterTag = 'true'"
+        }
+      ]
+    },
+    {
+      "name": "topic-2",
+      "subscription": [
+        {
+          "name": "foo"
+        }
+      ]
+    },
+  ],
+  "queues": [
+    "queue-1",
+    "queue-2"
+  ]
 }
 
 ```
@@ -81,7 +81,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Craig Boroson** 
+* Craig Boroson 
 
 See also the list of [contributors](https://github.com/cboroson/ServiceBuster/contributors) who participated in this project.
 
