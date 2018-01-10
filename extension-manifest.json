@@ -2,9 +2,9 @@
   "manifestVersion": 1,
   "id": "cboroson-Service-Buster",
   "name": "Azure Service Buster",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "publisher": "cboroson",
-  "public": false,
+  "public": true,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
