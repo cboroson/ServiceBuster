@@ -13,11 +13,11 @@ This solution uses Visual Studio Team Services to manage an Azure Service Bus th
 
 This extension assumes that the Service Bus namespace already exists in the specified subscription and resource group.  It will not create the namespace if it doesn't already exist (however this would probably be an easy change to implement).
 
-### Configuration
+## Configuration
 
 Add this extenion in the usual way as a release task.  The only option is whether to delete any namespace resources that are not specifically defined in the configuration file.  Selecting the option to `Remove Undefined Objects` will enforce the deletion of any queues, topics and subscriptions that are not in the json configuration file. 
 
-## Configuration file structure
+### Configuration file structure
 
 The json configuration file should be configured using standard json syntax and structure.  A sample is shown below.
 
