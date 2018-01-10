@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "cboroson-Service-Buster",
   "name": "Azure Service Buster",
-  "version": "1.0.35",
+  "version": "1.0.37",
   "publisher": "cboroson",
   "public": false,
   "targets": [
@@ -25,7 +25,7 @@
   ],
   "content": {
     "details": {
-      "path": "service-buster-extension/readme.md"
+      "path": "readme.md"
     },
     "license": {
       "path": "service-buster-extension/license.txt"
@@ -33,10 +33,10 @@
   },
   "links": {
     "getstarted": {
-      "uri": "https://github.com/cboroson/Service-Buster"
+      "uri": "https://github.com/cboroson/ServiceBuster"
     },
     "support": {
-      "uri": "https://github.com/cboroson/Service-Buster"
+      "uri": "https://github.com/cboroson/ServiceBuster"
     }
   },
 
@@ -64,7 +64,7 @@
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "service-busker-release"
+        "name": "service-buster-release"
       }
     }
   ]

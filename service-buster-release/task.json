@@ -3,13 +3,13 @@
   "name": "cboroson-Service-Buster",
   "friendlyName": "Azure Service Buster",
   "description": "Allows for the configuration of an Azure Service Bus from a specially formatted json file",
-  "helpMarkDown": "[More Information, setup...](https://github.com/cboroson/Service-Busker)",
+  "helpMarkDown": "[More Information, setup...](https://github.com/cboroson/ServiceBuster)",
   "category": "Utility",
   "author": "Craig Boroson",
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 35
+    "Patch": 37
   },
   "demands": [ "azureps" ],
   "visibility": [
