@@ -9,12 +9,20 @@ $data = Get-Content -Raw -LiteralPath $DefinitionFile | ConvertFrom-Json
 
 if (!($data)) { 
 	Write-VstsTaskError "No data able to be imported from $DefinitionFile.  Exiting."
-	Exit
+	$host.SetShouldExit(1)
 }
 
 ################# Initialize Azure. #################
 Import-Module $PSScriptRoot\ps_modules\VstsAzureHelpers_
 Initialize-Azure
+
+# Verify that namespace exists
+if (!(get-AzureRmServiceBusNamespace -ResourceGroupName $ResourceGroupName -Namespace $Namespace -ErrorAction SilentlyContinue)) {
+    Write-VstsTaskError "*** ERROR ***: The $Namespace namespace in Resource Group $ResourceGroupName was not found."
+    Trace-VstsLeavingInvocation $MyInvocation
+    $host.SetShouldExit(1)
+}
+
 
 #######################
 ###  Topics         ###
@@ -40,6 +48,7 @@ foreach ($topic in $Data.topics) {
         }
         else {
             Write-VstsTaskError "*** ERROR ***: The $($topic.name) topic in Resource Group $ResourceGroupName in the namespace $namespace was not created."
+            $error = $true
         }
     }
 
@@ -62,6 +71,7 @@ foreach ($topic in $Data.topics) {
             }
             else {
                 Write-VstsTaskError "*** ERROR ***: The $($subscription.name) subscription within the topic $($topic.name) was not created."
+                $error = $true
             }
         }
         
@@ -84,6 +94,7 @@ foreach ($topic in $Data.topics) {
                 }
                 else {
                     Write-VstsTaskError "*** ERROR ***: The $rule rule in the subscription $($subscription.name) was not created."
+                    $error = $true
                 }
                  
             }
@@ -119,6 +130,7 @@ foreach ($queueName in $Data.queues) {
         }
         else {
             Write-VstsTaskError "*** ERROR ***: The $QueueName queue in Resource Group $ResourceGroupName in the $Namespace namespace was not created."
+            $error = $true
         }
     }
 }
@@ -151,6 +163,7 @@ if ($RemoveUndefinedObjects -eq $true) {
             }
             else {
                 Write-VstsTaskError "*** ERROR ***: The $QueueName queue in Resource Group $ResourceGroupName in the $Namespace namespace was not removed."
+                $error = $true
             }
 
         }
@@ -187,6 +200,7 @@ if ($RemoveUndefinedObjects -eq $true) {
                 }
                 else {
                     Write-VstsTaskError "*** ERROR ***: The $subscription subscription within the topic $topicName was not removed."
+                    $error = $true
                 }
             }
         }
@@ -208,6 +222,7 @@ if ($RemoveUndefinedObjects -eq $true) {
             }
             else {
                 Write-VstsTaskError "*** ERROR ***: The $topicName topic in Resource Group $ResourceGroupName in the $Namespace namespace was not removed."
+                $error = $true
             }
         }
     }
@@ -215,4 +230,10 @@ if ($RemoveUndefinedObjects -eq $true) {
 else {
     Write-VstsTaskVerbose "Option set to Skip removal of undefined queues, topics and subscriptions."
 }
+
+if ($error -eq $true) {
+    Trace-VstsLeavingInvocation $MyInvocation
+    $host.SetShouldExit(1)
+}
+
 Trace-VstsLeavingInvocation $MyInvocation

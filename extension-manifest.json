@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "cboroson-Service-Buster",
   "name": "Azure Service Buster",
-  "version": "1.0.39",
+  "version": "1.0.42",
   "publisher": "cboroson",
   "public": true,
   "targets": [
@@ -11,8 +11,9 @@
     }
   ],
   "description": "Release task for managing topics, queues, etc.",
-  "scope": [
-    "vso.build"
+  "scopes": [
+    "vso.build",
+    "vso.serviceendpoint"
   ],    
   "categories": [
     "Build and release"

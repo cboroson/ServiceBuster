@@ -9,11 +9,12 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 39
+    "Patch": 42
   },
   "demands": [ "azureps" ],
   "visibility": [
-    "Release"
+    "Release",
+    "Build"
   ],
   "minimumAgentVersion": "1.102.0",
   "groups": [
