@@ -2,6 +2,12 @@
 
 name: Testing Multiple Repos
 
+# Required inputs
+inputs:
+  customer_short_name:  # id of input
+    description: 'Short text string that uniquely idendifies the customer.'
+    required: true
+
 # Controls when the action will run. 
 on:
   # Trigger the workflow on push or pull request,
@@ -46,5 +52,5 @@ jobs:
         run: ls -la "$GITHUB_WORKSPACE/configuration"
         
       - name: cat file
-        run: cat "$GITHUB_WORKSPACE/configuration/admins09.json"
+        run: cat "$GITHUB_WORKSPACE/configuration/$INPUTS_CUSTOMER_SHORT_NAME.json"
 
