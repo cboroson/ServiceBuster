@@ -43,5 +43,7 @@ jobs:
         run: pwd
 
       - name: list directory
-        run: ls -la "$GITHUB_WORKSPACE/ServiceBuster"
+        run: ls -la "$GITHUB_WORKSPACE"
 
+      - name: list directory
+        run: ls -la "$RUNNER_WORKSPACE"
