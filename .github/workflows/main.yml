@@ -36,12 +36,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Show environment vars
+        run: set
         
       - name: Show current working directory
         run: pwd
 
       - name: list directory
-        run: ls -la "${{ env.GITHUB_WORKSPACE }}/ServiceBuster"
+        run: ls -la "$GITHUB_WORKSPACE/ServiceBuster"
 
