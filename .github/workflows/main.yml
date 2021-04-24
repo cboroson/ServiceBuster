@@ -43,7 +43,8 @@ jobs:
         run: pwd
 
       - name: list directory
-        run: ls -la "$GITHUB_WORKSPACE"
+        run: ls -la "$GITHUB_WORKSPACE/configuration"
+        
+      - name: cat file
+        run: cat "$GITHUB_WORKSPACE/configuration/admins09.json"
 
-      - name: list directory
-        run: ls -la "$RUNNER_WORKSPACE"
