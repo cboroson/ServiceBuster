@@ -32,6 +32,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: cboroson/configuration
+          path: 'configuration'
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Runs a single command using the runners shell
@@ -42,5 +43,5 @@ jobs:
         run: pwd
 
       - name: list directory
-        run: ls -la
+        run: ls -la /home/runner/work
 
